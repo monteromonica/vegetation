@@ -61,9 +61,13 @@ from src.sentinel_s3_download import SentinelS3Downloader
 # Inicializar el downloader
 downloader = SentinelS3Downloader()
 
-# Descargar imagen
+# Definir área de interés (Madrid)
 bbox = [-3.7, 40.3, -3.4, 40.6]  # [minx, miny, maxx, maxy]
+
+# Definir intervalo de tiempo
 time_interval = ("2024-03-15T00:00:00Z", "2024-03-16T23:59:59Z")
+
+# Descargar imagen
 output_path = "data/madrid_sentinel.tif"
 downloader.download_image(bbox, time_interval, output_path)
 ```
@@ -75,9 +79,13 @@ from src.sentinel_download import SentinelHubDownloader
 # Inicializar el downloader (requiere credenciales en .env)
 downloader = SentinelHubDownloader()
 
-# Descargar imagen
+# Definir área de interés (Madrid)
 bbox = [-3.7, 40.3, -3.4, 40.6]  # [minx, miny, maxx, maxy]
+
+# Definir intervalo de tiempo
 time_interval = ("2024-03-15T00:00:00Z", "2024-03-16T23:59:59Z")
+
+# Descargar imagen
 output_path = "data/madrid_sentinel.tif"
 downloader.download_image(bbox, time_interval, output_path)
 ```
