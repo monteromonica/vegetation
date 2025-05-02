@@ -29,8 +29,8 @@ El análisis genera imágenes que muestran:
 
 1. Clonar el repositorio:
 ```bash
-git clone [URL_DEL_REPOSITORIO]
-cd [NOMBRE_DEL_REPOSITORIO]
+git clone https://github.com/monteromonica/vegetation.git
+cd vegetation
 ```
 
 2. Crear un entorno virtual:
