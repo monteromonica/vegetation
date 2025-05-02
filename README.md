@@ -5,6 +5,7 @@ Este proyecto permite descargar y analizar imágenes Sentinel-2 para el estudio 
 ## Características
 
 - Descarga de imágenes Sentinel-2 desde AWS S3
+- Descarga de imágenes Sentinel-2 desde la API de Sentinel Hub
 - Cálculo de índices de vegetación (NDVI, NDWI, EVI)
 - Clasificación de tipos de vegetación
 - Análisis estadístico de cobertura vegetal
@@ -31,9 +32,43 @@ pip install -r requirements.txt
 
 4. Configurar credenciales:
    - Copiar `.env.example` a `.env`
-   - Completar las credenciales de AWS S3
+   - Completar las credenciales:
+     - Para AWS S3 (opcional, el bucket es público)
+     - Para Sentinel Hub API (opcional, si se quiere usar la API)
 
 ## Uso
+
+### Descarga de Imágenes
+
+#### Usando AWS S3 (recomendado)
+```python
+from src.sentinel_s3_download import SentinelS3Downloader
+
+# Inicializar el downloader
+downloader = SentinelS3Downloader()
+
+# Descargar imagen
+bbox = [-3.7, 40.3, -3.4, 40.6]  # [minx, miny, maxx, maxy]
+time_interval = ("2024-03-15T00:00:00Z", "2024-03-16T23:59:59Z")
+output_path = "data/madrid_sentinel.tif"
+downloader.download_image(bbox, time_interval, output_path)
+```
+
+#### Usando la API de Sentinel Hub
+```python
+from src.sentinel_download import SentinelHubDownloader
+
+# Inicializar el downloader (requiere credenciales en .env)
+downloader = SentinelHubDownloader()
+
+# Descargar imagen
+bbox = [-3.7, 40.3, -3.4, 40.6]  # [minx, miny, maxx, maxy]
+time_interval = ("2024-03-15T00:00:00Z", "2024-03-16T23:59:59Z")
+output_path = "data/madrid_sentinel.tif"
+downloader.download_image(bbox, time_interval, output_path)
+```
+
+### Análisis de Vegetación
 
 1. Asegúrate de que el archivo de imagen Sentinel-2 esté en el directorio `data/` con el nombre `madrid_sentinel.tif`
 
@@ -52,7 +87,8 @@ El script generará:
 .
 ├── data/                  # Datos e imágenes
 ├── src/                   # Código fuente
-│   ├── sentinel_s3_download.py  # Descarga de imágenes
+│   ├── sentinel_s3_download.py  # Descarga de imágenes desde S3
+│   ├── sentinel_download.py     # Descarga de imágenes desde API
 │   └── vegetation_analysis.py   # Análisis de vegetación
 ├── tests/                # Pruebas unitarias
 ├── .env                  # Credenciales (no subir a git)
