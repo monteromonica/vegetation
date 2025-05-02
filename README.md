@@ -11,6 +11,16 @@ Este proyecto permite descargar y analizar imágenes Sentinel-2 para el estudio 
 - Análisis estadístico de cobertura vegetal
 - Visualización de resultados
 
+## Ejemplo de Resultados
+
+El análisis genera una imagen que muestra:
+- NDVI (Índice de Vegetación)
+- Clasificación de Vegetación
+- NDWI (Índice de Agua)
+- EVI (Índice de Vegetación Mejorado)
+
+![Ejemplo de Análisis de Vegetación](data/vegetation_analysis.png)
+
 ## Instalación
 
 1. Clonar el repositorio:
