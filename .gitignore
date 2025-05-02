@@ -1,10 +1,17 @@
+# Archivos grandes
+*.tif
+
+# Entorno virtual
+venv/
+env/
+ENV/
+
 # Archivos de Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -16,20 +23,35 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 
-# Archivos de entorno virtual
-venv/
-ENV/
-env/
+# Archivos de entorno
+.env
 
 # Archivos de IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Archivos de prueba
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Archivos temporales
+*.tmp
+*.temp
 
 # Archivos de datos
 data/*.tif
@@ -40,14 +62,5 @@ data/*.shx
 data/*.dbf
 data/*.prj
 
-# Archivos de log
-*.log
-
-# Archivos temporales
-*.tmp
-*.temp
-.DS_Store
-
 # Archivos de configuración y credenciales
-.env
 .env.* 
